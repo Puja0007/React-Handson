@@ -24,6 +24,7 @@ import UseStateWithArray from './UseStateWithArray';
 import UseReducer from './UseReducer';
 import UseLayoutEffect from './UseLayoutEffect';
 import UseImperativeHandle from './UseImperativeHandle';
+import UseContextTutorial from './UseContextTutorial';
 function App() {
     const [count, setCount] = useState(0);
   return (
@@ -63,6 +64,8 @@ function App() {
      <StateWithObjects/>
      {/* use of useImperativeHook */}
       <UseImperativeHandle/>
+      {/* Use of useContextHook */}
+      <UseContextTutorial/>
      <NestedRouting/>
      <Routes>
        {/* <Route path="/*" element={<Page404/>}/> */}
