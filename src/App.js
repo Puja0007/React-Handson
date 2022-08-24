@@ -25,11 +25,15 @@ import UseReducer from './UseReducer';
 import UseLayoutEffect from './UseLayoutEffect';
 import UseImperativeHandle from './UseImperativeHandle';
 import UseContextTutorial from './UseContextTutorial';
+import Header from './containers/Header';
+
 function App() {
     const [count, setCount] = useState(0);
   return (
     <div className="App">
      <h1>Hello React</h1>
+     {/* Use of Redux */}
+     <Header/>
      {/* react form use */}
      <Formdata/>
      {/* parent to child data & chlind to parent data */}

@@ -5,9 +5,10 @@ import Login from './Login';
 export const AppContext = createContext();
 function UseContextTutorial(){
     const [userName,setUserName] = useState("");
-    return(<AppContext.Provider value={{userName,setUserName}}>
+    const [showProfile, setShowProfile] = useState(false);
+    return(<AppContext.Provider value={{userName,setUserName, setShowProfile}}>
         <h1>Use of UseContext</h1>
-        <Login/><User/>
+        {showProfile ? <User/> : <Login/>}
     </AppContext.Provider>)
 }
 
