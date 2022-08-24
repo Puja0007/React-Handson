@@ -26,7 +26,9 @@ import UseLayoutEffect from './UseLayoutEffect';
 import UseImperativeHandle from './UseImperativeHandle';
 import UseContextTutorial from './UseContextTutorial';
 import Header from './containers/Header';
-
+import ProductListing from './containers/ProductListing';
+import ProductComponent from './containers/ProductComponent';
+import ProductDetail from './containers/ProductDetail';
 function App() {
     const [count, setCount] = useState(0);
   return (
@@ -49,8 +51,10 @@ function App() {
      {/* use of useLayoutEffect */}
      <UseLayoutEffect/>
      <BrowserRouter>
-     <Link to="/about">About</Link>
-     <Link to="/login">Login</Link>
+     <Link to="/products">Product List</Link>
+     {/* <Link to="/product/:productId">Product</Link> */}
+     {/* <Link to="/about">About</Link>
+     <Link to="/login">Login</Link> */}
      {/* use of navlink & link */}
      <h1>Use of navlink</h1>
       <Navbar/>
@@ -73,12 +77,15 @@ function App() {
      <NestedRouting/>
      <Routes>
        {/* <Route path="/*" element={<Page404/>}/> */}
-       <Route path="/login" element={<Login/>}/>
+       {/* <Route path="/login" element={<Login/>}/>
        <Route path="/" element={<Protected Component={Home}/>}/>
        <Route path="/about" element={<About/>}/>
        <Route path="/*" element={<Navigate to="/"/>}/>
        <Route path="/params/:name" element={<Paramsrouting/>}/>
-        <Route path="/navigation" element={<Navigationrouting/>}/>
+        <Route path="/navigation" element={<Navigationrouting/>}/> */}
+        <Route exact path="/products" element={<ProductListing/>}/>
+        <Route path="/products/:productId" element={<ProductDetail/>}/> 
+        <Route path="/*" element={<Page404/>}/>
      </Routes>
      </BrowserRouter>
      {/* Navigation routing explained
