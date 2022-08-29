@@ -2,11 +2,13 @@ import React,{useEffect} from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import axios from "axios";
-import {selectProduct} from './redux/actions/productActions';
+import {selectProduct, removeSelectedProduct} from './redux/actions/productActions';
 
 
 const ProductDetail = ()=>{
     const { productId } = useParams();
+    const productDetails = useSelector((state)=>state.selectedProduct.product)
+    console.log(productDetails);
     const dispatch = useDispatch();
     console.log(productId);
     const fetchProductDetails = async ()=>{
@@ -19,12 +21,36 @@ const ProductDetail = ()=>{
         
     }
     useEffect(()=>{
-        fetchProductDetails();
-    },[])
+        if(productId && productId !==""){
+            fetchProductDetails();
+        }
+        return ()=>{
+            dispatch(removeSelectedProduct());
+        };
+    } ,[productId]);
+    
+   
     return(
-        <>
-            <h1>Product Detail</h1>
-        </>
+        <div className="ui grid container">
+            {Object.keys(productDetails).length === 0 ? (
+                <div>Loading...</div>
+
+            ):(
+                <div className="ui placeholder segment">
+                    <div className="ui two column very relaxed stackable grid">
+                        <div className="ui vertical divider">
+                            AND
+                        </div>
+                        <div className="middle aligned row">
+                            <div className="column lp">
+                                <img className="ui fluid image" src={productDetails.images[0]}/>
+                            </div>
+                        </div>
+                        </div>
+
+                </div>
+            )}
+        </div>
     )
 }
 

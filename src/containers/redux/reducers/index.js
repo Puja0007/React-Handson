@@ -4,7 +4,8 @@ import { setproductReducers, selectProductReducer } from "./productReducers";
 
 const reducers = combineReducers({
     allProducts: setproductReducers,
-    selectedProduct: selectProductReducer,
+    selectedProduct: selectProductReducer
+
 })
 
 export default reducers;
